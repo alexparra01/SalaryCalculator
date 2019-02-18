@@ -1,0 +1,11 @@
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\bin\Debug\netcoreapp2.1\SalaryPackageCalculator.deps.json
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\bin\Debug\netcoreapp2.1\SalaryPackageCalculator.runtimeconfig.json
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\bin\Debug\netcoreapp2.1\SalaryPackageCalculator.runtimeconfig.dev.json
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\bin\Debug\netcoreapp2.1\SalaryPackageCalculator.dll
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\obj\Debug\netcoreapp2.1\SalaryPackageCalculator.csprojAssemblyReference.cache
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\obj\Debug\netcoreapp2.1\SalaryPackageCalculator.csproj.CoreCompileInputs.cache
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\obj\Debug\netcoreapp2.1\SalaryPackageCalculator.AssemblyInfoInputs.cache
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\obj\Debug\netcoreapp2.1\SalaryPackageCalculator.AssemblyInfo.cs
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\bin\Debug\netcoreapp2.1\SalaryPackageCalculator.pdb
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\obj\Debug\netcoreapp2.1\SalaryPackageCalculator.dll
+C:\Users\alexa\Documents\DotnetProjects\SalaryPackageCalculator\SalaryPackageCalculator\SalaryPackageCalculator\obj\Debug\netcoreapp2.1\SalaryPackageCalculator.pdb
