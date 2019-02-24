@@ -1,6 +1,7 @@
 ﻿using SalaryPackageCalculator.Models;
 using SalaryPackageCalculator.Utils;
 using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Text;
 
@@ -45,7 +46,7 @@ namespace SalaryPackageCalculator.Calculations
                     break;
             }
 
-            Console.WriteLine(string.Format(Constants.IncomeTaxMessage + "{0}", string.Format("{0:C}", _salary.IncomeTax)));
+            WriteLine($"{Constants.IncomeTaxMessage}{_salary.IncomeTax.ToString("C2")}");
         }
 
         private int GetValueInRange(decimal taxableIncome)

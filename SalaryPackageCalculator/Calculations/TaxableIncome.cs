@@ -1,6 +1,7 @@
 ﻿using SalaryPackageCalculator.Models;
 using SalaryPackageCalculator.Utils;
 using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Text;
 
@@ -30,7 +31,7 @@ namespace SalaryPackageCalculator.Calculations
             //not rounded taxable income
             var taxableIncome = _salary.Amount - _salary.Superannuation;
 
-            Console.WriteLine(string.Format(Constants.TaxableIncomeMessage + "{0}", string.Format("{0:C}", taxableIncome)));
+            WriteLine($"{Constants.TaxableIncomeMessage}{taxableIncome.ToString("C2")}");
         }
         
     }

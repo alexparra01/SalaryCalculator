@@ -1,5 +1,7 @@
-﻿using SalaryPackageCalculator.Models.enums;
+﻿using Microsoft.Extensions.Logging;
+using SalaryPackageCalculator.Models.enums;
 using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,6 +15,12 @@ namespace SalaryPackageCalculator.Utils
     }
     public class Validator : IValidator
     {
+        private readonly ILogger<Validator> _logger;
+
+        public Validator(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<Validator>();
+        }
         /// <summary>
         /// This method validate the number by comparing with special caracthers
         /// </summary>
@@ -20,15 +28,26 @@ namespace SalaryPackageCalculator.Utils
         /// <returns>decimal</returns>
         public decimal ValidateNumber(string salaryAmount)
         {
-            var invalidCharacters = new Regex("[*'\".,_&#^@]");
-
-            while(invalidCharacters.IsMatch(salaryAmount))
+            decimal result = 0m;
+            try
             {
-                Console.Write("Wrong input number please enter an salary amount without spaces or special characters ");
-                salaryAmount = Console.ReadLine();
+                var invalidCharacters = new Regex("[*'\".,_&#^@]");
+
+                while (invalidCharacters.IsMatch(salaryAmount))
+                {
+                    Write(Constants.ValidationNumberMessage);
+                    salaryAmount = Console.ReadLine();
+                }
+
+                result = decimal.Parse(salaryAmount);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogTrace($"Validation error: {ex.Message}" );
+                WriteLine($"Validation error: {ex.Message}");
             }
 
-            return decimal.Parse(salaryAmount);
+            return result;
         }
 
         /// <summary>
@@ -40,8 +59,8 @@ namespace SalaryPackageCalculator.Utils
         {
             while (!string.Equals(frecuency.ToUpper(), "M") && !string.Equals(frecuency.ToUpper(), "F") && !string.Equals(frecuency.ToUpper(), "W"))
             {
-                Console.Write("Wrong input letter please enter an frecuency letther without spaces or special characters (W for weekly, F for fortnightly, M for monthly)  ");
-                frecuency = Console.ReadLine();
+                Write(Constants.ValidationLetterMessage);
+                frecuency = ReadLine();
             }
 
             return frecuency;

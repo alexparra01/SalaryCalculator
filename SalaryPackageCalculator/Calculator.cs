@@ -2,7 +2,7 @@
 using SalaryPackageCalculator.Calculations;
 using SalaryPackageCalculator.Models;
 using SalaryPackageCalculator.Utils;
-using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
@@ -50,43 +50,43 @@ namespace SalaryPackageCalculator
         public void Calculate()
         {
             //Input salary
-            Console.Write(Constants.EnterSalaryMessage);
-            _salary.Amount = _validator.ValidateNumber(Console.ReadLine());
+            Write(Constants.EnterSalaryMessage);
+            _salary.Amount = _validator.ValidateNumber(ReadLine());
 
             //Input frecuency
-            Console.Write(Constants.EnterFrecuencyMessage);
-            _salary.Frecuency = Mapper.Convert(_validator.ValidateFrecuencyLetter(Console.ReadLine()));
+            Write(Constants.EnterFrecuencyMessage);
+            _salary.Frecuency = Mapper.Convert(_validator.ValidateFrecuencyLetter(ReadLine()));
 
-            Console.WriteLine();
-            Console.WriteLine(Constants.CalculatingSalaryMessage);
-            Console.WriteLine();
+            WriteLine();
+            WriteLine(Constants.CalculatingSalaryMessage);
+            WriteLine();
 
             //Print gross salary
-            Console.WriteLine(string.Format(Constants.GrossPackageMessage + "{0}", string.Format("{0:C0}", _salary.Amount)));
+            WriteLine($"{Constants.GrossPackageMessage}{_salary.Amount.ToString("C0")}");
 
             //Calculate superannuation
             _supperannuation.Calculate();
-            Console.WriteLine();
+            WriteLine();
 
             //Calculate taxableincome
             _taxableIncome.Calculate();
-            Console.WriteLine();
+            WriteLine();
 
             //Calculate deductions
-            Console.WriteLine(Constants.DeductionsMessage);
+            WriteLine(Constants.DeductionsMessage);
             _deductions.CalculateMedicareLevy();
             _deductions.CalculateBudgetRepairLevy();
             _deductions.CalculateIncomeTax();
-            Console.WriteLine();
+            WriteLine();
 
             //Salary after deductions
             _netIncome.Calculate();
 
             //Salary pay frecuency (monthly, weekly, fornightly)
             _payPacket.Calculate();
-            Console.WriteLine();
+            WriteLine();
 
-            Console.WriteLine(Constants.FinishMessage);
+            WriteLine(Constants.FinishMessage);
            
         }
     }

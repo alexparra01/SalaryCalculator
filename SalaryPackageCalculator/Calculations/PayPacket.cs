@@ -2,6 +2,7 @@
 using SalaryPackageCalculator.Models.enums;
 using SalaryPackageCalculator.Utils;
 using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,6 +15,7 @@ namespace SalaryPackageCalculator.Calculations
     public class PayPacket : IPayPacket
     {
         private Salary _salary;
+        private string frecuency = string.Empty;
         public PayPacket(Salary salary)
         {
             _salary = salary;
@@ -28,19 +30,20 @@ namespace SalaryPackageCalculator.Calculations
             {
                 case Frecuency.Weekly:
                     _salary.PayPacket = (_salary.NetIncome / 365m) * 7m;
-                    Console.WriteLine(string.Format(Constants.PayPacketMessage + "{0}" + " per week", string.Format("{0:C}", _salary.PayPacket)));
+                    frecuency = " per week";
                     break;
                 case Frecuency.Fornightly:
                     _salary.PayPacket = (_salary.NetIncome / 365m) * 14m;
-                    Console.WriteLine(string.Format(Constants.PayPacketMessage + "{0}" + " per fornightly", string.Format("{0:C}", _salary.PayPacket)));
+                    frecuency = " per fornightly";
                     break;
                 case Frecuency.Monthly:
                     _salary.PayPacket = _salary.NetIncome / 12m;
-                    Console.WriteLine(string.Format(Constants.PayPacketMessage + "{0}" + " per month", string.Format("{0:C}", _salary.PayPacket)));
+                    frecuency = " per month";
                     break;
                 default:
                     break;
             }
+            WriteLine($"{Constants.PayPacketMessage}{_salary.PayPacket.ToString("C2")}{frecuency}");
         }
     }
 }

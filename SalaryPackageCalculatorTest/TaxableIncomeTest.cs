@@ -11,8 +11,9 @@ namespace Tests
 {
     public class TaxableIncomeTest
     {
-        private Mock<ITaxableIncome> _calculatorMock;
+        private ITaxableIncome taxableCalculator;
         private ServiceProvider dependencies;
+        private Salary salary;
 
         public TaxableIncomeTest()
         {
@@ -21,31 +22,24 @@ namespace Tests
                .AddTransient<ITaxableIncome, TaxableIncome>()
                .BuildServiceProvider();
 
-            _calculatorMock = new Mock<ITaxableIncome>();
+            salary = dependencies.GetService<Salary>();
+            taxableCalculator = dependencies.GetService<ITaxableIncome>();
         }
-
-        [Test]
-        public void CallTaxableIncomeTest()
-        {
-            _calculatorMock.Object.Calculate();
-
-            _calculatorMock.Verify(x => x.Calculate(), Times.Once);
-
-        }
-
+       
+        /// <summary>
+        /// Test Case: Calculate taxable income base on salary gross of 65000 and a super of 5639.27. The expected
+        /// result is 59360 (Rounded down)
+        /// </summary>
         [Test]
         public void CalculateTaxableIncomeTest()
         {
-            var taxableCalculator = dependencies.GetService<ITaxableIncome>();
-            var salary = dependencies.GetService<Salary>();
-
             salary.Amount = 65000m;
             salary.Superannuation = 5639.27m;
 
             taxableCalculator.Calculate();
 
             Assert.IsNotNull(salary.TaxableIncome);
-            Assert.AreEqual(59360, salary.TaxableIncome);
+            Assert.AreEqual(59360m, salary.TaxableIncome);
         }
     }
 }

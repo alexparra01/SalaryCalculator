@@ -1,5 +1,6 @@
 ﻿using SalaryPackageCalculator.Models;
 using SalaryPackageCalculator.Utils;
+using static System.Console;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,15 +28,14 @@ namespace SalaryPackageCalculator.Calculations
             {
                 case 0:
                     _salary.BudgetRepairLevy = 0m;
-                    Console.WriteLine(string.Format(Constants.BudgetRepairLevyMessage + "{0}", string.Format("{0:C0}", _salary.BudgetRepairLevy)));
                     break;
                 case 1:
                     _salary.BudgetRepairLevy = Math.Ceiling((_salary.TaxableIncome - 180000m) * 0.02m);
-                    Console.WriteLine(string.Format(Constants.BudgetRepairLevyMessage + "{0}", string.Format("{0:C0}", _salary.BudgetRepairLevy)));
                     break;
                 default:
                     break;
             }
+            WriteLine($"{Constants.BudgetRepairLevyMessage}{_salary.BudgetRepairLevy.ToString("C0")}");
 
         }
 

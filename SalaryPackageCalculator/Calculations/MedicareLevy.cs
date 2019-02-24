@@ -1,6 +1,7 @@
 ﻿
 using SalaryPackageCalculator.Models;
 using SalaryPackageCalculator.Utils;
+using static System.Console;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -41,7 +42,7 @@ namespace SalaryPackageCalculator.Calculations
                     break;
             }
 
-            Console.WriteLine(string.Format(Constants.MedicareLevyMessage + "{0}", string.Format("{0:C}", _salary.MedicareLevy)));
+            WriteLine($"{Constants.MedicareLevyMessage}{_salary.MedicareLevy.ToString("C2")}");
 
         }
 

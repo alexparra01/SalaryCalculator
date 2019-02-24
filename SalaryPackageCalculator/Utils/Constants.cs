@@ -20,5 +20,8 @@ namespace SalaryPackageCalculator.Utils
         public const string NetIncomeMessage = "Net income: ";
         public const string PayPacketMessage = "Pay packet: ";
         public const string FinishMessage = "Press any key to end...";
+
+        public const string ValidationLetterMessage = "Wrong input letter please enter an frecuency letther without spaces or special characters (W for weekly, F for fortnightly, M for monthly)  ";
+        public const string ValidationNumberMessage = "Wrong input number please enter an salary amount without spaces or special characters ";
     }
 }

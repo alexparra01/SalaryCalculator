@@ -1,6 +1,7 @@
 ﻿using SalaryPackageCalculator.Models;
 using SalaryPackageCalculator.Utils;
 using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
@@ -26,7 +27,7 @@ namespace SalaryPackageCalculator.Calculations
         public void Calculate()
         {
             _salary.Superannuation = _salary.Amount - _salary.Amount / 1.095m;
-            Console.WriteLine(string.Format(Constants.SuperannuationMessage + "{0}", string.Format("{0:C}", _salary.Superannuation)));
+            WriteLine($"{Constants.SuperannuationMessage}{_salary.Superannuation.ToString("C2")}");
         } 
         
     }

@@ -1,6 +1,6 @@
 ﻿using SalaryPackageCalculator.Models;
 using SalaryPackageCalculator.Utils;
-using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Text;
 
@@ -26,7 +26,7 @@ namespace SalaryPackageCalculator.Calculations
         {
             _salary.NetIncome = _salary.Amount - _salary.Superannuation - _salary.IncomeTax - _salary.MedicareLevy - _salary.BudgetRepairLevy;
 
-            Console.WriteLine(string.Format(Constants.NetIncomeMessage + "{0}", string.Format("{0:C}", _salary.NetIncome)));
+            WriteLine($"{Constants.NetIncomeMessage}{_salary.NetIncome.ToString("C2")}");
             
         }
     }
